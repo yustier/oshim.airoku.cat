@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>おしまいのあいろく, おしまいろく</title>
+    <meta property="og:title" content="おしまいのあいろく, おしまいろく">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://oshim.airoku.cat">
+    <style>
+        :root {
+            color-scheme: dark light;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            font-size: 5vw;
+        }
+        #btns {
+            display: flex;
+            gap: 2rem;
+        }
+        #btns>input {
+            font-size: 2vw;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>おしまいの<a href="https://airoku.cat">あいろく</a>, おしまいろく</h1>
+    <div id="btns">
+        <input type="button" value="おしまいのツイート, 終ート" onclick="location.href='https://twitter.com/intent/tweet?text=' + encodeURIComponent('おしまいのあいろく, おしまいろく\nhttps://oshim.airoku.cat')">
+    </div>
+    <script>
+        const btns = document.getElementById('btns');
+        if (window.opener || (window === window.top && history.length <= 1)) {
+            const osmi = document.createElement('input');
+            osmi.type = 'button';
+            osmi.value = 'おしまい';
+            osmi.addEventListener('click', function () {
+                window.close();
+            });
+            btns.insertBefore(osmi, btns.firstChild);
+        }
+    </script>
+</body>
+
+</html>
